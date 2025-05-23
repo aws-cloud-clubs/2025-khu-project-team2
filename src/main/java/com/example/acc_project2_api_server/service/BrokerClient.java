@@ -1,5 +1,6 @@
 package com.example.acc_project2_api_server.service;
 
+import com.example.acc_project2_api_server.dto.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class BrokerClient {
     }
 
     public Mono<Void> sendOrder(Order order) {
-        // 단순 라운드로빈 or CircuitBreaker 로직 적용 가능
+        // 단순 라운드로빈 가능하긴 함 고민 좀 해봄 알고리즘 로직
         return client.post()
                 .uri(brokers.get(0) + "/orders")
                 .bodyValue(order)

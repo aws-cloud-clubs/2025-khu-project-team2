@@ -1,6 +1,12 @@
 package com.example.acc_project2_api_server.service;
 
+import com.example.acc_project2_api_server.dto.FailureEvent;
+import com.example.acc_project2_api_server.dto.Order;
+import io.micrometer.core.instrument.MeterRegistry;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+
+import java.time.Instant;
 
 @Service
 public class OrderService {
