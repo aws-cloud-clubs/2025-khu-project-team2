@@ -31,13 +31,13 @@ public class OrderService {
 
         // 2) 브로커에 동기 호출
         try {
-            broker.sendOrder(order).block();
+            broker.sendOrder(order, "order").block();
         } catch (Exception ex) {
             // 3) 실패 메트릭 증가
             meter.counter("broker.failures", "broker", "broker1").increment();
             // 4) “broker-failure” 토픽에 실패 이벤트 Produce
             FailureEvent ev = new FailureEvent(
-                    order.orderId(), "broker1", Instant.now(), ex.getMessage());
+                    order, "broker1", Instant.now(), ex.getMessage());
             failKt.send("broker-failure", ev);
         }
     }

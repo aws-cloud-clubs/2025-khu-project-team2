@@ -12,15 +12,22 @@ import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
 //Metric 설정 부분
 @Configuration
 public class MetricConfig {
+    //Clock이 연결이 안되어서 넣어줌
     @Bean
-    public CloudWatchMeterRegistry cloudWatchMeterRegistry(CloudWatchConfig config, Clock clock,  CloudWatchAsyncClient cloudWatchAsyncClient) {
-        return CloudWatchMeterRegistry
-                .builder(config, cloudWatchAsyncClient)      // ← 두 파라미터로 호출
-                .clock(clock)
-                .build();
+    public Clock micrometerClock() {
+        return Clock.SYSTEM;
+    }
+
+    @Bean
+    public CloudWatchMeterRegistry cloudWatchMeterRegistry(
+            CloudWatchConfig config,
+            Clock clock,
+            CloudWatchAsyncClient cloudWatchAsyncClient
+    ) {
+        // v2 레지스트리는 빌더 대신 생성자를 사용합니다
+        return new CloudWatchMeterRegistry(config, clock, cloudWatchAsyncClient);
     }
     // CloudWatchConfig 구현체 필요 (region, credentials 등)
-
     @Bean
     public CloudWatchAsyncClient cloudWatchAsyncClient() {
         return CloudWatchAsyncClient.builder()
@@ -28,11 +35,12 @@ public class MetricConfig {
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build();
     }
+
     @Bean
     public CloudWatchConfig cloudWatchConfig() {
         return new CloudWatchConfig() {
-            @Override public String get(String key)  { return null; } // default
-            @Override public String namespace()      { return "MyApp"; }
+            @Override public String get(String key)   { return null; }
+            @Override public String namespace()       { return "MyApp"; }
         };
     }
 
