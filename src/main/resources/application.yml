@@ -1,0 +1,10 @@
+# application.yml
+management:
+  metrics:
+    export:
+      cloudwatch:
+        namespace: MyService
+spring:
+  kafka:
+    bootstrap-servers: b-1.msk.xxx.amazonaws.com:9092
+
