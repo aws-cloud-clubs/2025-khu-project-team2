@@ -11,7 +11,8 @@ public class BrokerSwitchConsumer {
     public BrokerSwitchConsumer(BrokerClient brokerClient) {
         this.brokerClient = brokerClient;
     }
-
+  
+    // TODO: 토픽과 그룹은 나중에 정해야한다
     @KafkaListener(topics = "broker-switch-events", groupId = "broker-switch-group")
     public void consumeBrokerSwitchEvent() {
         brokerClient.switchBroker();
