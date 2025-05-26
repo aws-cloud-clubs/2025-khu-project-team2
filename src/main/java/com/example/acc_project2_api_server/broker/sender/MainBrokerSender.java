@@ -8,6 +8,7 @@ import reactor.core.publisher.Mono;
 @Component
 public class MainBrokerSender implements OrderSender {
     private final WebClient client;
+    // TODO: URL 나중에 수정
     private static final String MAIN_BROKER_URL = "http://main-broker";
 
     public MainBrokerSender(WebClient.Builder wb) {
