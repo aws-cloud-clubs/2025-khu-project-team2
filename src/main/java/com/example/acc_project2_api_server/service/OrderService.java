@@ -1,7 +1,7 @@
 package com.example.acc_project2_api_server.service;
 
 import com.example.acc_project2_api_server.dto.Order;
-import com.example.acc_project2_api_server.broker.client.BrokerClient;
+import com.example.acc_project2_api_server.externalApi.brokerserver.BrokerClient;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.stereotype.Service;
 

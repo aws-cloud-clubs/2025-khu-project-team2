@@ -1,8 +1,8 @@
-package com.example.acc_project2_api_server.broker.client;
+package com.example.acc_project2_api_server.externalapi.brokerserver;
 
-import com.example.acc_project2_api_server.broker.sender.OrderSender;
-import com.example.acc_project2_api_server.broker.sender.MainBrokerSender;
-import com.example.acc_project2_api_server.broker.sender.SubBrokerSender;
+import com.example.acc_project2_api_server.externalapi.brokerserver.sender.OrderSender;
+import com.example.acc_project2_api_server.externalapi.brokerserver.sender.MainBrokerSender;
+import com.example.acc_project2_api_server.externalapi.brokerserver.sender.SubBrokerSender;
 import com.example.acc_project2_api_server.dto.Order;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;

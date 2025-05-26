@@ -1,6 +1,6 @@
 package com.example.acc_project2_api_server.consumer;
 
-import com.example.acc_project2_api_server.broker.client.BrokerClient;
+import com.example.acc_project2_api_server.externalApi.brokerserver.BrokerClient;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
