@@ -37,6 +37,13 @@ resource "aws_security_group" "msk_sg" {
   }
 
   ingress {
+    from_port   = 9094
+    to_port     = 9094
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.msk_vpc.cidr_block]
+  }
+
+  ingress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
