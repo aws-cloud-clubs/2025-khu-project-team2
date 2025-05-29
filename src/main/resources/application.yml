@@ -1,4 +1,6 @@
 # application.yml
+aws:
+  region: ap-northeast-2
 management:
   metrics:
     export:
