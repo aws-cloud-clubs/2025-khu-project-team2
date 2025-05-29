@@ -1,6 +1,6 @@
 provider "aws" {
   region = var.region
-  profile = "acc-project-iam"
+  profile = "default"
 }
 
 data "aws_availability_zones" "azs" {
