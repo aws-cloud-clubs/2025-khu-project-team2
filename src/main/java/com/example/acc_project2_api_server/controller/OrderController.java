@@ -18,6 +18,7 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody Order order) {
+        System.out.println("요청 도착: " + order);
         orderService.processOrder(order);
         return ResponseEntity.accepted().build();
     }

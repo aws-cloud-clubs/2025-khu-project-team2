@@ -18,7 +18,8 @@ public class MainBrokerSender implements OrderSender {
     @Override
     public Mono<Void> sendOrder(Order order) {
         return client.post()
-                .uri(MAIN_BROKER_URL + "/orders")
+//                .uri(MAIN_BROKER_URL + "/orders")
+                .uri("http://localhost:8080/broker-order")
                 .bodyValue(order)
                 .retrieve()
                 .bodyToMono(Void.class);
