@@ -3,8 +3,8 @@ spring:
     bootstrap-servers: localhost:9092
 
 broker:
-  main-url: http://localhost:8080/broker-order
-  sub-url: http://localhost:8080/sub-broker-order
+  main-url: http://localhost:8080
+  sub-url: http://localhost:8080
   sub:
     max-requests: 10
 

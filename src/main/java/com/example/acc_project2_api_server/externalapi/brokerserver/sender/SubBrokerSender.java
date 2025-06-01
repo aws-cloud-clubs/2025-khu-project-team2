@@ -20,7 +20,7 @@ public class SubBrokerSender implements OrderSender {
     @Override
     public Mono<Void> sendOrder(Order order) {
         return client.post()
-                .uri(subBrokerUrl)
+                .uri(subBrokerUrl + "/sub-broker-order")
                 .bodyValue(order)
                 .retrieve()
                 .bodyToMono(Void.class);

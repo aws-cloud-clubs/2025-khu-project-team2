@@ -3,8 +3,8 @@ spring:
     bootstrap-servers: b-1.msk.xxx.amazonaws.com:9092
 
 broker:
-  main-url: http://main-broker/orders
-  sub-url: http://sub-broker/orders
+  main-url: http://main-broker
+  sub-url: http://sub-broker
   sub:
     max-requests: 10 # 나중에 수정
 
