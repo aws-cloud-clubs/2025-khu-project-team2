@@ -19,7 +19,6 @@ public class OrderService {
 
     public void processOrder(Order order) {
         // TODO: 메트릭 수집 로직이 구현되면 수정해야한다
-//        broker.switchBroker(); //서브브로커 테스트
         broker.sendOrder(order)
             .doOnError(ex -> meter.counter("broker.failures", "broker", "broker1").increment())
             .subscribe();

@@ -1,20 +1,4 @@
 # application.yml
-management:
-  metrics:
-    export:
-      cloudwatch:
-        enabled: false
 spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
+  profiles:
+    active: local

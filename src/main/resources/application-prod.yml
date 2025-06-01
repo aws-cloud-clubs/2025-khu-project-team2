@@ -1,0 +1,15 @@
+spring:
+  kafka:
+    bootstrap-servers: b-1.msk.xxx.amazonaws.com:9092
+
+broker:
+  main-url: http://main-broker/orders
+  sub-url: http://sub-broker/orders
+  sub:
+    max-requests: 10 # 나중에 수정
+
+management:
+  metrics:
+    export:
+      cloudwatch:
+        enabled: MyService
